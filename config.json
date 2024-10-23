@@ -1,0 +1,5 @@
+{
+  "endpoint": "/webhook-proxy",
+  "webhook_url": "https://webhook.site/734e278c-1f84-41a5-9be6-f3e4d9502c7b",
+  "headers_to_body": ["User-Agent", "X-Custom-Header"]
+}

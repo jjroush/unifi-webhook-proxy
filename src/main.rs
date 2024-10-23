@@ -5,6 +5,7 @@ use std::convert::Infallible;
 use std::sync::Arc;
 use tokio::sync::Mutex;
 use hyper_tls::HttpsConnector;
+use std::fs;
 
 #[derive(Deserialize, Debug)]
 struct Config {
@@ -60,16 +61,14 @@ async fn proxy_handler(
 
 #[tokio::main]
 async fn main() {
-    let config_data = r#"
-    {
-        "endpoint": "/webhook-proxy",
-        "webhook_url": "https://webhook.site/734e278c-1f84-41a5-9be6-f3e4d9502c7b",
-        "headers_to_body": ["User-Agent", "X-Custom-Header"]
-    }"#;
+    let config_path = "config.json";
 
+    let config_data = fs::read_to_string(config_path)
+        .expect("Unable to read config file");
 
     // Parse the config at runtime
-    let config: Config = serde_json::from_str(config_data).expect("Invalid config format");
+    let config: Config = serde_json::from_str(&config_data)
+        .expect("Invalid config format");
     let config = Arc::new(config);
 
     // Define the address and port
