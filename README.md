@@ -4,7 +4,7 @@ Enjoy full-bodied payloads with this Rust proxy server for UniFi webhooks. 🚀
 
 ## Problem
 
-UniFi Dream Machines (UDM) are great for managing your home or office network, but they have one little quirk: **they don't let you include bodies in webhook requests**. So if you want to trigger something more complex, like a service that needs custom headers or request bodies, you're stuck! It's like trying to write a novel using only tweets—possible, but frustratingly limited.
+Unifi does not allow you to include bodies in Protect webhooks.
 
 ## Solution
 
@@ -12,12 +12,6 @@ This Rust proxy server solves that by acting as an intermediary between your Uni
 
 This is especially useful if you need to include information from the request headers (such as `User-Agent`, `X-Custom-Header`, etc.) as part of the webhook payload.
 
-### Why Rust?
-Rust is:
-- Fast ⚡️
-- Safe 🛡️
-- Memory-efficient 💾
-- And let's be honest, it's just cool 😎.
 
 ### Why Do I Need This?
 
@@ -64,14 +58,6 @@ Create a `config.json` file with the following format:
    ./target/release/rust-proxy-server
    ```
 
-## Why This Matters?
-
-Because **UniFi doesn’t allow you to add a body to webhooks**—and that’s almost as frustrating as a Wi-Fi signal drop when you're binge-watching your favorite show. This Rust proxy server fixes that issue so you can unleash the full potential of your network automations.
-
 ## License
 
 MIT License. Enjoy and contribute!
-
----
-
-**Pro Tip**: UniFi doesn't let you include a body in your webhook, but with this proxy, you can finally stop missing out on those full-bodied payloads—just like you stopped missing out on full Wi-Fi coverage after upgrading to UniFi!
